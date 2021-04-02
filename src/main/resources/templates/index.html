@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="employee:${employees}">
+        <h2 th:text="${employee.name}"></h2>
+        <h4 th:inline="text"> identified by [[${employee.ssn}]]</h4>
+        <ul>
+            <th:block th:object="${employee.getLaptop()}">
+            <li th:inline="text">
+                has been assigned a <b>[[*{brand}]] [[*{model}]]</b>
+            </li>
+            </th:block>
+        </ul>
+    </div>
+</body>
+</html>
